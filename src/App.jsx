@@ -1,9 +1,13 @@
-import React from 'react'
+import Router from "./route/Router";
+import GlobalStyles from "./styles/GlobalStyles.js";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <>
+      <GlobalStyles />
+      <Router />
+    </>
+  );
+};
 
-export default App
+export default App;
