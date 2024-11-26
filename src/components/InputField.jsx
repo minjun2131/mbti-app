@@ -3,7 +3,7 @@ import { InputStyle, InputArea, LabelStyle } from "../styles/FormStyle";
 const InputField = ({ label, type, name, value, onChange }) => {
   return (
     <InputArea>
-      <LabelStyle name={name} label={label} />
+      <LabelStyle for={name} name={name} label={label} />
       <InputStyle
         type={type}
         name={name}

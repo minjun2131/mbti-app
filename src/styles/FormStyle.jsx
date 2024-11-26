@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const FormWrap = styled.div`
-  margin-top: 30px;
+  margin-top: 94px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -79,4 +79,9 @@ export const LinkArea = styled.div`
 
 export const LinkStyle = styled(Link)`
   color: #ff0000;
+`;
+
+export const SuccessStyle = styled.span`
+  color: green;
+  margin-top: 30px;
 `;

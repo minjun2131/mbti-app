@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+export const HomeWrap = styled.div`
+  max-width: 1200px;
+  margin: 94px auto 0;
+`;
+
 export const TitleArea = styled.section`
   width: 100%;
   text-align: center;

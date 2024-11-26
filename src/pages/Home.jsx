@@ -11,6 +11,7 @@ import {
   ListTitle,
   TestAndResultLink,
   MainTitle,
+  HomeWrap,
 } from "../styles/HomeStyle.jsx";
 const Home = () => {
   return (
@@ -18,7 +19,7 @@ const Home = () => {
       <div>
         <Header />
       </div>
-      <div>
+      <HomeWrap>
         <TitleArea>
           <MainTitle>무료 성격 테스트</MainTitle>
           <SubTitle>
@@ -59,7 +60,7 @@ const Home = () => {
             <ButtonStyle>내 성격 알아보러 가기</ButtonStyle>
           </ButtonArea>
         </ChooseArea>
-      </div>
+      </HomeWrap>
     </div>
   );
 };
