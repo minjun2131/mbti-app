@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { register } from "../api/auth";
 import Header from "../components/Header";
 import InputField from "../components/InputField";
@@ -13,6 +13,7 @@ import {
 } from "../styles/FormStyle";
 import formHandler from "../utils/formHandler";
 const Signup = () => {
+  const navigate = useNavigate();
   const { formData, handleInputChange } = formHandler({});
   console.log(formData);
 
@@ -37,7 +38,7 @@ const Signup = () => {
       const response = await register(formData);
       console.log("회원가입 성공:", response);
       alert("회원가입 성공!");
-      Navigate("/login");
+      navigate("/login");
     } catch (error) {
       alert("이미 존재하는 유저입니다.");
       console.error("회원가입 실패:", error.response.data);

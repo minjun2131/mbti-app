@@ -5,6 +5,7 @@ import { createTestResult } from "../api/testResults";
 import { useNavigate } from "react-router-dom";
 import { getUserProfile } from "../api/auth";
 import Header from "../components/Header";
+import { v4 as uuid } from "uuid";
 
 const TestPage = ({ user }) => {
   const token = localStorage.getItem("accessToken");
@@ -28,11 +29,13 @@ const TestPage = ({ user }) => {
     const response = await getUserProfile(token);
     const mbtiResult = calculateMBTI(answers);
     const data = {
-      id: token,
+      id: uuid,
+      userid: response.id,
       nickname: response.nickname,
       mbti: mbtiResult,
       descriptions: mbtiDescriptions[mbtiResult],
       registration: formatter.format(date),
+      visibility:true,
     };
     setResult(mbtiResult);
     await createTestResult(data);
