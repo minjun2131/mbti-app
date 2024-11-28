@@ -13,7 +13,7 @@ const Router = () => {
   // 토큰 값이 바뀔 때마다 true false 측정해서 ProtectedRoute 사용
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const token = localStorage.getItem("accessToken");
-  const fetchAuthenticated = async () => {
+  const fetchAuthenticated = async (token) => {
     if (token) {
       const userProfile = await getUserProfile(token);
       setIsAuthenticated(userProfile ? true : false);
@@ -22,8 +22,12 @@ const Router = () => {
     }
   };
 
+  // 컴포넌트가 한번 렌더링 된 다음에 실행이 되는거임
+  // 그래서 최초엔 null로 들어감
+  // useEffect는 한번 더 공부를 해봐야 함
+  // 그래서 새로고침을 하는 방식으로 수정함
   useEffect(() => {
-    fetchAuthenticated();
+    fetchAuthenticated(token);
   }, [token]);
   return (
     <BrowserRouter>
