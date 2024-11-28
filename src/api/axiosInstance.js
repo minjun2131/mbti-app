@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API_INSTANCE = axios.create({
-  baseURL: "https://lying-magenta-chili.glitch.me/testResults",
-  // https://lying-magenta-chili.glitch.me
+  baseURL: "http://localhost:5000/testResults",
+  // https://lying-magenta-chili.glitch.me/testResults
   // http://localhost:5000/testResults
   timeout: 5000,
 });

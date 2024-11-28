@@ -12,13 +12,16 @@ import {
   FormWrap,
 } from "../styles/FormStyle";
 import formHandler from "../utils/formHandler";
+import { useNavigate } from "react-router-dom";
 import showAlert from "../utils/showAlert";
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const { formData, handleInputChange } = formHandler({});
+  const navigate = useNavigate();
   const validateForm = ({ id, password }) => {
     if (!id) return { valid: false, message: "아이디를 입력해주세요." };
     if (!password) return { valid: false, message: "비밀번호를 입력해주세요." };
+
     return { valid: true };
   };
 
@@ -40,7 +43,8 @@ const Login = () => {
       const response = await login(formData);
       const { accessToken } = response;
       localStorage.setItem("accessToken", accessToken);
-      window.location.href("/");
+      setUser(accessToken);
+      navigate("/");
     } catch (error) {
       showAlert({
         title: "로그인 실패",
