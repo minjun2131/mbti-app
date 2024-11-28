@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 
 const Router = () => {
   // 토큰 값이 바뀔 때마다 true false 측정해서 ProtectedRoute 사용
-  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const token = localStorage.getItem("accessToken");
   const fetchAuthenticated = async (token) => {
     if (token) {
