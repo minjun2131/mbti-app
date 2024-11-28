@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import TestResultItem from "./TestResultItem";
 import { getUserProfile } from "../api/auth";
+import showAlert from "../utils/showAlert";
 
 const TestResultList = () => {
   const token = localStorage.getItem("accessToken");
@@ -31,19 +32,21 @@ const TestResultList = () => {
     queryKey: ["testResults"],
     queryFn: getTestResults,
   });
-
   if (isPending) {
     return console.log("로딩");
   }
   if (isError) {
     return console.log(isError);
   }
-
   const handleDelete = (id) => {
-    console.log("삭제되었습니다.");
+    showAlert({
+      title: "게시글 삭제",
+      icon: "error",
+      text: "게시글이 삭제되었습니다.",
+      confirmButtonText: "확인",
+    });
     mutation.mutate(id);
   };
-
   return (
     <ul className="w-3/5">
       {testResults

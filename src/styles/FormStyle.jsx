@@ -51,9 +51,8 @@ export const LabelStyle = styled.label`
 
 export const InputStyle = styled.input`
   display: inline-block;
-  width: 250px;
-  height: 30px;
-  line-height: 20px;
+  width: 260px;
+  height: 40px;
   padding: 10px;
   border: none;
   border-radius: 10px;
@@ -69,6 +68,11 @@ export const ButtonStyle = styled.button`
   border: none;
   color: #fff;
   border-radius: 10px;
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: transparent;
+    color: #ff0000;
+  }
 `;
 
 export const LinkArea = styled.div`

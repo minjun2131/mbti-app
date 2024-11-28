@@ -1,4 +1,3 @@
-import Swal from "sweetalert2";
 import { logout } from "../api/auth";
 import {
   AccessArea,
@@ -6,6 +5,7 @@ import {
   Navigation,
   NavWrap,
   LinkColor,
+  LinkOut,
 } from "../styles/HeaderStyle";
 import showAlert from "../utils/showAlert";
 
@@ -36,9 +36,9 @@ const Header = () => {
             <LinkColor to="/profile">프로필</LinkColor>
             <LinkColor to="/testpage">테스트</LinkColor>
             <LinkColor to="/testresultpage">결과보기</LinkColor>
-            <LinkColor to="/login" onClick={handleLogout}>
+            <LinkOut to="/login" onClick={handleLogout}>
               로그아웃
-            </LinkColor>
+            </LinkOut>
           </AccessArea>
         )}
       </Navigation>
