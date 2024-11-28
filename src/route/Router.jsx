@@ -24,7 +24,9 @@ const Router = () => {
   // 컴포넌트가 한번 렌더링 된 다음에 실행이 되는거임
   // 그래서 최초엔 null로 들어감
   // useEffect는 한번 더 공부를 해봐야 함
-  fetchAuthenticated(token);
+   useEffect(() => {
+    fetchAuthenticated(token);
+  }, [token]);
   return (
     <BrowserRouter>
       <Routes>
