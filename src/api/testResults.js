@@ -1,23 +1,22 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:5000/testResults";
+import API_INSTANCE from "./axiosInstance";
 
 export const getTestResults = async () => {
-  const response = await axios.get(API_URL);
+  const response = await API_INSTANCE.get("/");
+  console.log(response.data);
   return response.data;
 };
 
 export const createTestResult = async (resultData) => {
-  await axios.post(API_URL, resultData);
+  await API_INSTANCE.post("/", resultData);
 };
 
 export const deleteTestResult = async (id) => {
-  const deleteResponse = await axios.delete(`${API_URL}/${id}`);
+  const deleteResponse = await API_INSTANCE.delete(`/${id}`);
   return deleteResponse.data;
 };
 
 export const updateTestResultVisibility = async (id, visibility) => {
-  const visibilityResponse = await axios.patch(`${API_URL}/${id}`, {
+  const visibilityResponse = await API_INSTANCE.patch(`/${id}`, {
     visibility: visibility,
   });
   console.log(visibilityResponse);

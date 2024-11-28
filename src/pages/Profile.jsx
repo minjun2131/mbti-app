@@ -12,8 +12,10 @@ import {
 } from "../styles/FormStyle";
 import formHandler from "../utils/formHandler";
 import showAlert from "../utils/showAlert";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const { formData, setFormData, handleInputChange } = formHandler({});
   const [isChanged, setIsChanged] = useState(false);
   const token = localStorage.getItem("accessToken");
@@ -35,6 +37,7 @@ const Profile = () => {
           text: "프로필 데이터를 불러오는 중 문제가 발생했습니다.",
           confirmButtonText: "확인",
         });
+        navigate("/login");
       }
     };
     fetchProfile();

@@ -67,7 +67,7 @@ const TestPage = ({ user }) => {
             </p>
             <button
               onClick={handleNavigateToResults}
-              className="w-full bg-primary-color text-black py-3 rounded-lg font-semibold hover:bg-primary-dark transition duration-300 hover:text-[#FF5A5F]"
+              className="w-full bg-primary-color text-white py-3 rounded-lg font-semibold hover:bg-white transition duration-300 hover:text-[#FF5A5F]"
             >
               결과 페이지로 이동하기
             </button>

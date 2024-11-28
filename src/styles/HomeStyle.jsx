@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export const HomeWrap = ({ children }) => (
-  <div className="max-w-[1200px] mt-[94px] mx-auto">{children}</div>
+  <div className="max-w-[1200px] mt-[114px] mx-auto">{children}</div>
 );
 
 export const TitleArea = ({ children }) => (

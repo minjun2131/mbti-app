@@ -15,7 +15,7 @@ export const Navigation = styled.nav`
   color: #ff0000;
   display: flex;
   justify-content: space-between;
-  line-height: 60px;
+  line-height: 80px;
 `;
 export const NavTitle = styled.h1`
   width: 77px;
@@ -30,3 +30,14 @@ export const LinkColor = styled(Link)`
   margin-right: 15px;
   color: #ff0000;
 `;
+
+export const LinkOut = ({ to, children, onClick }) => (
+  <Link
+    to={to}
+    onClick={onClick}
+    className="w-full bg-primary-color px-6 text-white py-3 rounded-lg font-semibold hover:bg-transparent transition duration-300 hover:text-[#FF5A5F]"
+  >
+    {children}
+  </Link>
+);
+
