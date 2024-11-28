@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { logout } from "../api/auth";
 import {
   AccessArea,
@@ -6,12 +7,18 @@ import {
   NavWrap,
   LinkColor,
 } from "../styles/HeaderStyle";
+import showAlert from "../utils/showAlert";
 
 const Header = () => {
   // token 값 truthy falshy한 값으로 만들기
   const token = !!localStorage.getItem("accessToken");
   const handleLogout = () => {
     logout();
+    showAlert({
+      title: "로그아웃",
+      icon: "error",
+      confirmButtonText: "확인",
+    });
   };
 
   return (

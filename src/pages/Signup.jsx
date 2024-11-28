@@ -12,6 +12,8 @@ import {
   FormWrap,
 } from "../styles/FormStyle";
 import formHandler from "../utils/formHandler";
+import Swal from "sweetalert2";
+import showAlert from "../utils/showAlert";
 const Signup = () => {
   const navigate = useNavigate();
   const { formData, handleInputChange } = formHandler({});
@@ -31,16 +33,30 @@ const Signup = () => {
     const { valid, message } = validateForm({ id, password, nickname });
     console.log(formData);
     if (!valid) {
-      alert(message);
+      showAlert({
+        title: "회원가입 실패",
+        icon: "error",
+        text: message,
+        confirmButtonText: "확인",
+      });
       return;
     }
     try {
-      const response = await register(formData);
-      console.log("회원가입 성공:", response);
-      alert("회원가입 성공!");
-      navigate("/login");
+      await register(formData);
+      showAlert({
+        title: "회원가입 성공",
+        icon: "success",
+        text: "회원가입에 성공하셨습니다!",
+        confirmButtonText: "확인",
+        onConfirm: () => navigate("/login"),
+      });
     } catch (error) {
-      alert("이미 존재하는 유저입니다.");
+      showAlert({
+        title: "회원가입 실패",
+        icon: "warning",
+        text: "이미 존재하는 유저입니다.",
+        confirmButtonText: "확인",
+      });
       console.error("회원가입 실패:", error.response.data);
     }
   };

@@ -1,65 +1,52 @@
-import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const HomeWrap = styled.div`
-  max-width: 1200px;
-  margin: 94px auto 0;
-`;
+export const HomeWrap = ({ children }) => (
+  <div className="max-w-[1200px] mt-[94px] mx-auto">{children}</div>
+);
 
-export const TitleArea = styled.section`
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-`;
-export const ChooseArea = styled.section`
-  width: 100%;
-  margin-top: 30px;
-`;
-export const MainTitle = styled.h2`
-  font-size: 36px;
-  margin-top: 30px;
-`;
-export const SubTitle = styled.p`
-  margin-top: 30px;
-`;
+export const TitleArea = ({ children }) => (
+  <section className="w-full text-center mt-8">{children}</section>
+);
 
-export const ChooseTest = styled.ul`
-  width: 90%;
-  padding: 0 5%;
-  display: flex;
-`;
+export const ChooseArea = ({ children }) => (
+  <section className="w-full mt-8 flex flex-col items-center">
+    {children}
+  </section>
+);
 
-export const TestAndResult = styled.li`
-  background-color: #fff;
-  margin: 0 2%;
-  border-radius: 5px;
-  box-shadow: 1px 3px 3px #ccc;
-`;
+export const MainTitle = ({ children }) => (
+  <h2 className="text-3xl mt-8">{children}</h2>
+);
 
-export const TestAndResultLink = styled(Link)`
-  display: inline-block;
-  padding: 20px;
-`;
+export const SubTitle = ({ children }) => <p className="mt-8">{children}</p>;
 
-export const ListTitle = styled.h3`
-  font-size: 20px;
-`;
+export const ChooseTest = ({ children }) => (
+  <ul className=" flex">{children}</ul>
+);
 
-export const ListInfo = styled.div`
-  margin-top: 20px;
-  line-height: 30px;
-`;
+export const TestAndResult = ({ children }) => (
+  <li className="bg-white mx-[2%] p-5 rounded shadow-[1px_3px_3px_#ccc]">
+    {children}
+  </li>
+);
+export const ListTitle = ({ children }) => (
+  <h3 className="text-lg">{children}</h3>
+);
 
-export const ButtonArea = styled.div`
-  width: 100%;
-  margin-top: 100px;
-  height: 100px;
-  text-align: center;
-`;
+export const ListInfo = ({ children }) => (
+  <div className="mt-5 leading-[30px]">{children}</div>
+);
 
-export const ButtonStyle = styled(Link)`
-  background-color: red;
-  padding: 12px 20px;
-  border-radius: 30px;
-  color: #fff;
-`;
+export const ButtonArea = ({ children }) => (
+  <div className="w-full mt-24 h-[100px] text-center">{children}</div>
+);
+
+export const ButtonStyle = ({ to, children, onClick }) => (
+  <Link
+    to={to}
+    onClick={onClick}
+    className="bg-red-500 py-3 px-5 rounded-[30px] text-white hover:bg-transparent hover:text-red-500 transition-colors duration-200"
+  >
+    {children}
+  </Link>
+);

@@ -8,7 +8,7 @@ export const getTestResults = async () => {
 };
 
 export const createTestResult = async (resultData) => {
-  const createResponse = await axios.post(API_URL, resultData);
+  await axios.post(API_URL, resultData);
 };
 
 export const deleteTestResult = async (id) => {

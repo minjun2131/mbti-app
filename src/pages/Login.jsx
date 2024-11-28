@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { login } from "../api/auth";
 import Header from "../components/Header";
 import InputField from "../components/InputField";
@@ -11,10 +12,12 @@ import {
   FormWrap,
 } from "../styles/FormStyle";
 import formHandler from "../utils/formHandler";
+import { useNavigate } from "react-router-dom";
+import showAlert from "../utils/showAlert";
 
 const Login = () => {
   const { formData, handleInputChange } = formHandler({});
-
+  const navigate = useNavigate();
   const validateForm = ({ id, password }) => {
     if (!id) return { valid: false, message: "아이디를 입력해주세요." };
     if (!password) return { valid: false, message: "비밀번호를 입력해주세요." };
@@ -28,18 +31,26 @@ const Login = () => {
     const { valid, message } = validateForm({ id, password });
     console.log(formData);
     if (!valid) {
-      alert(message);
+      showAlert({
+        title: "로그인 실패",
+        icon: "error",
+        text: message,
+        confirmButtonText: "확인",
+      });
       return;
     }
     try {
       const response = await login(formData);
       const { accessToken } = response;
       localStorage.setItem("accessToken", accessToken);
-      alert("로그인에 성공하셨습니다.");
-      console.log("로그인 성공:", response);
-      window.location.href = "/";
+      navigate("/");
     } catch (error) {
-      alert("로그인에 실패하였습니다. 정보를 다시 확인해주세요.");
+      showAlert({
+        title: "로그인 실패",
+        icon: "error",
+        text: "아이디 비밀번호를 다시 확인해주세요.",
+        confirmButtonText: "확인",
+      });
       console.error("로그인 실패:", error.message || error.response?.data);
     }
   };

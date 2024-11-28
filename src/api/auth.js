@@ -14,7 +14,6 @@ export const login = async (userData) => {
 
 export const logout = async () => {
   localStorage.removeItem("accessToken");
-  alert("로그아웃 되었습니다.");
 };
 
 export const getUserProfile = async (token) => {

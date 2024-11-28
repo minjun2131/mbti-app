@@ -52,7 +52,7 @@ export const LabelStyle = styled.label`
 export const InputStyle = styled.input`
   display: inline-block;
   width: 250px;
-  height: 20px;
+  height: 30px;
   line-height: 20px;
   padding: 10px;
   border: none;
