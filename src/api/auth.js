@@ -26,7 +26,7 @@ export const getUserProfile = async (token) => {
     });
     return getUserResponse.data;
   } catch (error) {
-    if (error.response && error.response.sattus === 401) {
+    if (error.response && error.response.status === 401) {
       showAlert({
         title: "토큰만료",
         icon: "error",
